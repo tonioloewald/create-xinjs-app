@@ -1,0 +1,23 @@
+{
+  "name": "create-xinjs-app",
+  "version": "0.1",
+  "devDependencies": {
+    "@types/web": "^0.0.99",
+    "bun-types": "canary",
+    "chokidar": "^3.5.3",
+    "http-server": "^14.1.1",
+    "prettier": "^2.8.8",
+    "typescript": "latest",
+    "xinjs": "latest",
+    "xinjs-ui": "latest"
+  },
+  "scripts": {
+    "dev": "bun --watch dev.ts",
+    "format": "bun prettier --write ."
+  },
+  "module": "index.ts",
+  "type": "module",
+  "bin": {
+    "create-xinjs-app": "./create-xinjs-app.js"
+  }
+}
