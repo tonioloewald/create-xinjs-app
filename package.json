@@ -1,6 +1,6 @@
 {
   "name": "create-xinjs-app",
-  "version": "0.1",
+  "version": "0.1.2",
   "devDependencies": {
     "@types/web": "^0.0.99",
     "bun-types": "canary",
