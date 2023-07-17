@@ -1,8 +1,10 @@
-#!/usr/bin/env node
+#! /usr/bin/env node
 
-const { execSync } = require('child_process');
-const path = require('path');
-const fs = require('fs');
+'use strict'
+
+import { execSync } from 'child_process'
+import path from 'path'
+import fs from 'fs'
 
 if (process.argv.length < 3) {
   console.log('You have to provide a name to your app.');
@@ -34,9 +36,9 @@ async function main() {
 
     process.chdir(projectPath);
 
-    fs.rmdirSync(path.join(projectPath, 'bin'), { recursive: true});
+    fs.rmSync(path.join(projectPath, 'bin'), { recursive: true});
 
-    console.log('Done! Just install bun, bun install, and go…');
+    console.log('Done! Just install bun if you have to, `bun install`, and `bun run dev`');
 
   } catch (error) {
     console.log(error);

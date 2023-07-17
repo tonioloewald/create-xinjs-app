@@ -1,7 +1,6 @@
 import * as path from 'path'
 import { statSync } from 'fs'
-import type { ServeOptions } from 'bun'
-import {watch} from 'chokidar'
+import { watch } from 'chokidar'
 
 const PROJECT_ROOT = import.meta.dir
 
