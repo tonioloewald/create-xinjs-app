@@ -7,7 +7,7 @@ const PROJECT_ROOT = import.meta.dir
 const PUBLIC_DIR = path.resolve(PROJECT_ROOT, 'public')
 const BUILD_DIR = path.resolve(PROJECT_ROOT, 'build')
 
-async function build () {
+async function build() {
   console.time('build')
   const result = await Bun.build({
     entrypoints: ['./src/index.ts'],
@@ -17,9 +17,9 @@ async function build () {
   })
   console.timeEnd('build')
   if (!result.success) {
-    console.error("Build failed");
+    console.error('Build failed')
     for (const message of result.logs) {
-      console.error(message);
+      console.error(message)
     }
   }
 }

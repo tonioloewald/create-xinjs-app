@@ -1,7 +1,17 @@
-import { XinStyleSheet, bind, initVars, darkMode, css, vars, elements, Color } from 'xinjs'
+import {
+  XinStyleSheet,
+  bind,
+  initVars,
+  darkMode,
+  css,
+  vars,
+  elements,
+  Color,
+} from 'xinjs'
 const { style } = elements
 
-const FONTS_URL = 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap'
+const FONTS_URL =
+  'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap'
 const BRAND_COLOR = Color.fromCss('rgb(8, 131, 88)')
 const SHADE_COLOR = Color.fromCss('rgb(241, 241, 188)')
 const TEXT_COLOR = Color.fromCss('#222222')
@@ -63,7 +73,7 @@ const codeVars = {
 
 const rules: XinStyleSheet = {
   '@import': FONTS_URL,
-    
+
   body: {
     ...initVars({ ...cssVars, ...brandColors, ...codeVars }),
     fontFamily: vars.font,
@@ -106,14 +116,14 @@ const rules: XinStyleSheet = {
     borderRadius: vars.roundedRadius50,
   },
   'input[type="range"]': {
-    boxShadow: 'none'
+    boxShadow: 'none',
   },
   'button:hover, .clickable:hover': {
-    background: vars.hoverBg
+    background: vars.hoverBg,
   },
   'button:active, .clickable:active': {
     background: vars.activeBg,
-    boxShadow: vars.borderShadow
+    boxShadow: vars.borderShadow,
   },
   label: {
     display: 'inline-flex',
@@ -121,8 +131,8 @@ const rules: XinStyleSheet = {
     alignItems: 'center',
   },
   ':focus': {
-    outline: 'none'
-  }
+    outline: 'none',
+  },
 }
 
 document.head.append(style({ id: 'base-style' }, css(rules)))

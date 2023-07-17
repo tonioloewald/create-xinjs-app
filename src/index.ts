@@ -7,7 +7,7 @@ const { app } = xinProxy({
   app: {
     caption: 'hello xinjs',
     angle: 45,
-  }
+  },
 })
 
 window.app = app
@@ -15,39 +15,35 @@ window.app = app
 bindings.rotate = {
   toDOM(elt, angle) {
     elt.style.transform = `rotateZ(${angle}deg)`
-  }
+  },
 }
-
 
 // comment
 document.body.append(
-  h1( 
+  h1(
     img({
-      alt: 'xinjs logo', 
+      alt: 'xinjs logo',
       src: 'logo.svg',
       style: {
         maxHeight: '32px',
-        marginRight: vars.gap
+        marginRight: vars.gap,
       },
     }),
-    span({bindText: 'app.caption'})
+    span({ bindText: 'app.caption' })
   ),
   img({
     src: 'bunlogo.svg',
     bindRotate: 'app.angle',
     style: {
-      maxHeight: '128px'
-    }
+      maxHeight: '128px',
+    },
   }),
-  p( 'a paragraph' ),
+  p('a paragraph'),
   label(
     'rotate logo',
-    input({ type:"range", min: 0, max: 360, bindValue: 'app.angle' })
+    input({ type: 'range', min: 0, max: 360, bindValue: 'app.angle' })
   ),
-  label(
-    'app caption',
-    input({ bindValue: 'app.caption' })
-  ),
+  label('app caption', input({ bindValue: 'app.caption' })),
   br(),
   button('click me')
 )
