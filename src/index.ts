@@ -36,6 +36,7 @@ document.body.append(
     bindRotate: 'app.angle',
     style: {
       maxHeight: '128px',
+      transition: '0.25s ease-out',
     },
   }),
   p('a paragraph'),
@@ -45,5 +46,9 @@ document.body.append(
   ),
   label('app caption', input({ bindValue: 'app.caption' })),
   br(),
-  button('click me')
+  button('click me', {
+    onClick() {
+      app.angle = (app.angle + 45 + Math.random() * 45) % 360
+    }
+  })
 )
