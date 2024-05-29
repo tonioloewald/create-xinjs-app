@@ -12,7 +12,7 @@ async function build() {
   const result = await Bun.build({
     entrypoints: ['./src/index.ts'],
     outdir: './build',
-    sourcemap: 'inline',
+    sourcemap: 'external',
     minify: true,
   })
   console.timeEnd('build')
