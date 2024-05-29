@@ -12,5 +12,6 @@
     "forceConsistentCasingInFileNames": true,
     "allowJs": true,
     "types": ["bun-types", "@types/web"]
-  }
+  },
+  "include": ["src"]
 }
