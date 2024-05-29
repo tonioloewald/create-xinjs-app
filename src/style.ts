@@ -1,8 +1,7 @@
 import {
   XinStyleSheet,
   bind,
-  initVars,
-  darkMode,
+  invertLuminance,
   css,
   vars,
   elements,
@@ -37,45 +36,45 @@ bind(document.body, 'app.darkmode', {
 })
 
 const cssVars = {
-  font: "'Roboto Slab', Serif",
-  codeFont: "'Space Mono', monospace",
-  fontSize: 16,
-  codeFontSize: 16,
-  lineHeight: 25,
-  pad: 16,
-  gap: vars.pad50,
-  roundedRadius: vars.pad25,
-  textColor: TEXT_COLOR.html,
-  itemSpacing: vars.pad50,
-  background: BG_COLOR.html,
-  inputBg: INPUT_BG.html,
-  buttonBg: SHADE_COLOR.opacity(0.25).html,
-  hoverBg: SHADE_COLOR.opacity(0.5).html,
-  activeBg: SHADE_COLOR.html,
-  lightBorderColor: BRAND_COLOR.opacity(0.4).html,
-  borderColor: BRAND_COLOR.opacity(0.8).html,
-  lightBorderShadow: `0 0 0 1px ${vars.lightBorderColor}`,
-  borderShadow: `0 0 0 1px ${vars.borderColor}`,
-  toolbarHeight: `calc(${vars.lineHeight} + ${vars.pad})`,
-  placeHolderOpacity: 0.5,
-  vh: '100vh',
+  _font: "'Roboto Slab', Serif",
+  _codeFont: "'Space Mono', monospace",
+  _fontSize: 16,
+  _codeFontSize: 16,
+  _lineHeight: 25,
+  _pad: 16,
+  _gap: vars.pad50,
+  _roundedRadius: vars.pad25,
+  _textColor: TEXT_COLOR.html,
+  _itemSpacing: vars.pad50,
+  _background: BG_COLOR.html,
+  _inputBg: INPUT_BG.html,
+  _buttonBg: SHADE_COLOR.opacity(0.25).html,
+  _hoverBg: SHADE_COLOR.opacity(0.5).html,
+  _activeBg: SHADE_COLOR.html,
+  _lightBorderColor: BRAND_COLOR.opacity(0.4).html,
+  _borderColor: BRAND_COLOR.opacity(0.8).html,
+  _lightBorderShadow: `0 0 0 1px ${vars.lightBorderColor}`,
+  _borderShadow: `0 0 0 1px ${vars.borderColor}`,
+  _toolbarHeight: `calc(${vars.lineHeight} + ${vars.pad})`,
+  _placeHolderOpacity: 0.5,
+  _vh: '100vh',
 }
 
 const brandColors = {
-  brandColor: BRAND_COLOR.html,
-  brandTextColor: SHADE_COLOR.html,
+  _brandColor: BRAND_COLOR.html,
+  _brandTextColor: SHADE_COLOR.html,
 }
 
 const codeVars = {
-  codeColor: vars.textColor,
-  codeBg: BRAND_COLOR.brighten(0.25).saturate(1).opacity(0.1).html,
+  _codeColor: vars.textColor,
+  _codeBg: BRAND_COLOR.brighten(0.25).saturate(1).opacity(0.1).html,
 }
 
 const rules: XinStyleSheet = {
   '@import': FONTS_URL,
 
   body: {
-    ...initVars({ ...cssVars, ...brandColors, ...codeVars }),
+    ...cssVars, ...brandColors, ...codeVars,
     fontFamily: vars.font,
     background: vars.background,
     color: vars.textColor,
@@ -88,11 +87,11 @@ const rules: XinStyleSheet = {
     fontFamily: vars.font,
   },
   '@media (prefers-color-scheme: dark)': {
-    body: initVars({
-      darkmode: 'true',
-    }),
+    body: {
+      _darkmode: 'true',
+    },
   },
-  '.darkmode': { ...darkMode(cssVars) },
+  '.darkmode': { ...invertLuminance(cssVars) },
   h1: {
     color: vars.brandColor,
     fontSize: vars.fontSize200,
