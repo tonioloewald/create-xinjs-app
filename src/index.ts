@@ -8,7 +8,13 @@ const { app } = xinProxy({
     caption: 'hello xinjs',
     angle: 45,
   },
-})
+}, true)
+
+declare global {
+  interface Window {
+    app: typeof app
+  }
+}
 
 window.app = app
 
@@ -29,11 +35,11 @@ document.body.append(
         marginRight: vars.gap,
       },
     }),
-    span({ bindText: 'app.caption' })
+    span({ bindText: app.caption })
   ),
   img({
     src: 'bunlogo.svg',
-    bindRotate: 'app.angle',
+    bindRotate: app.angle,
     style: {
       maxHeight: '128px',
       transition: '0.25s ease-out',
@@ -42,9 +48,9 @@ document.body.append(
   p('a paragraph'),
   label(
     'rotate logo',
-    input({ type: 'range', min: 0, max: 360, bindValue: 'app.angle' })
+    input({ type: 'range', min: 0, max: 360, bindValue: app.angle as any })
   ),
-  label('app caption', input({ bindValue: 'app.caption' })),
+  label('app caption', input({ bindValue: app.caption })),
   br(),
   button('click me', {
     onClick() {
